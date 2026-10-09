@@ -1,0 +1,53 @@
+/* Kunci utama agar pergeseran section berjalan mulus */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Pengaturan dasar layout agar section terlihat penuh (Full Screen) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: fixed; /* Agar navbar tetap menempel di atas saat di-scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Setiap section dibuat memenuhi layar agar efek scroll terasa */
+section {
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px; /* Jarak agar konten tidak tertutup navbar fixed */
+}
+
+/* Memberikan warna berbeda tiap section untuk penanda */
+#home { background-color: #f4f4f4; }
+#about { background-color: #dddddd; }
+#services { background-color: #cccccc; }
+#contact { background-color: #bbbbbb; }
+#feedback { background-color: #aaaaaa; }
+
+section h1 {
+    font-size: 4rem;
+    color: #333;
+}

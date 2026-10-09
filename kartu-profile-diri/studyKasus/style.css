@@ -1,0 +1,264 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.app-header {
+    background-color: #153553;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.content-section {
+    padding: 16px 20px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d3b66;
+    margin-bottom: 14px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.menu-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 1px;
+    padding: 12px 6px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.menu-badge {
+    display: inline-block;
+    background-color: #eff6ff;
+    color: #0d3b66;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    border: 1px solid #bfdbfe;
+}
+
+.menu-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-height: 36px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.menu-price {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.order-form-inline {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    background-color: #f1f5f9;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.flex-grow {
+    flex: 2;
+}
+
+.width-short {
+    width: 70px;
+}
+
+.form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    background-color: #ffffff;
+    outline: none;
+    height: 36px;
+}
+
+.form-control:focus {
+    border-color: #0d3b66;
+}
+
+.btn-submit-add {
+    background-color: #0d3b66;
+    color: #ffffff;
+    border: none;
+    padding: 0 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    height: 36px;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+.btn-submit-add:hover {
+    background-color: #092a4a;
+}
+
+.cart-box-container {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-height: 100px;
+    padding: 8px 16px;
+    background-color: #f8fafc;
+}
+
+.empty-state-text {
+    color: #94a3b8;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 32px 0;
+}
+
+.cart-row-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.cart-row-item:last-child {
+    border-bottom: none;
+}
+
+.item-meta-info .item-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.item-meta-info .item-calculation {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.item-action-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.item-computed-subtotal {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0d3b66;
+}
+
+.btn-action-delete {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-action-delete:hover {
+    text-decoration: underline;
+}
+
+.summary-total-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eff6ff;
+    border: 1px solid #3b82f6;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 12px;
+    color: #1d4ed8;
+}
+
+.total-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.total-amount-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.app-footer {
+    background-color: #0d3b66;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px;
+    font-size: 0.75rem;
+    margin-top: 16px;
+}

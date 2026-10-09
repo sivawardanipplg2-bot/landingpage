@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursus</title>
+    <link rel="stylesheet" href="kursus.css">
+</head>
+<body>
+    <header>
+    <div class="logo"><strong>EduSkill</strong></div>
+    <nav>
+        <a href="landing_page.html">Beranda</a>
+        <a href="kursus.html">Kursus</a>
+        <a href="#">Tentang</a>
+        <a href="#">Kontak</a>
+    </nav>
+    </header>
+    <main>
+            <div class="penjelasan">
+                <div class="HTML">
+                <h2>HTML (HyperText Markup Language)</h2>
+                <h3>Apa Itu HTML?</h3>
+                <p>HTML merupakan bahasa markup yang digunakan untuk membangun struktur dasar dari sebuah halaman web. HTML tidak dianggap sebagai bahasa pemrograman, melainkan sebagai bahasa markup yang memberikan kerangka dan konten seperti judul, paragraf, gambar, tautan, tabel, dan sebagainya.</p>
+                <h4>Fungsi Utama HTML:</h4>
+                <ul>
+                    <li>struktur halaman web</li>
+                    <li>Menandai elemen seperti header, footer, artikel, navigasi, dll.</li>
+                    <li>Menyisipkan media seperti gambar dan video</li>
+                    <li>Membuat tautan antar halaman atau situs</li>
+                </ul> 
+                </div>
+
+                <div class="CSS">
+                <h2>CSS (Cascading Style Sheets)</h2>
+                <h3> Apa Itu CSS?</h3>
+                <p>CSS adalah bahasa yang digunakan untuk mendesain tampilan visual dari elemen-elemen HTML. Dengan CSS, kita bisa mengatur warna, ukuran teks, jenis font, tata letak halaman, hingga animasi sederhana.</p>
+                <h4>Fungsi Utama CSS:</h4>
+                <ul>
+                    <li>Mengatur tampilan dan layout elemen HTML</li>
+                    <li>Memberikan gaya visual seperti warna, margin, dan padding</li>
+                    <li>Menyisipkan media seperti gambar dan video</li>
+                    <li>Membuat halaman lebih menarik dan responsif di berbagai perangkat</li>
+                </ul>
+                </div>
+            
+                <div class="JavaScript">
+                <h2>JavaScript</h2>
+                <h3>Apa Itu JavaScript?</h3>
+                <p>JavaScript adalah bahasa pemrograman yang digunakan untuk membuat website menjadi interaktif dan dinamis. Jika HTML memberikan struktur dan CSS menentukan tampilan, maka JavaScript memungkinkan pengguna untuk berinteraksi langsung dengan elemen di halaman, seperti mengklik tombol, mengisi formulir, atau menampilkan konten tanpa memuat ulang halaman.</p>
+                <h4>Fungsi Utama JavaScript:</h4>
+                <ul>
+                    <li>Menambahkan interaktivitas (klik, hover, validasi formulir)</li>
+                    <li>Mengubah konten halaman secara dinamis</li>
+                    <li>Berinteraksi dengan server melalui API (misalnya, AJAX)</li>
+                    <li>Membuat animasi dan efek visual</li>
+                </ul>
+                </div>
+            </div>
+            <button class="tombol-kembali" onclick="kembaliKeBeranda()">
+                    Kembali ke Beranda
+                </button>
+            <script>
+                function kembaliKeBeranda() {
+                window.location.href = "landing_page.html";
+                }
+            </script>
+    </main>
+    <footer class="kontak">
+        <p>&copy; 2026 EduSkill. Semua hak dilindungi.</p>
+    </footer>
+</body>
+</html>

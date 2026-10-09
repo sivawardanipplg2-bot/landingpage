@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cone-Fidence - Toko Es Krim Mewah & Lezat</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1A. LAYAR WELCOME SCREEN (Sesuai Referensi Gambar Desain UI) -->
+    <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-card-floating">
+            <div class="brand-logo-welcome">
+                <i class="fa-solid fa-ice-cream logo-icon"></i>
+                <span class="logo-text">Cone-<span>Fidence</span></span>
+            </div>
+            <h1 class="welcome-heading">Cone Your Day</h1>
+            <p class="welcome-sub">Selamat datang di aplikasi es krim Cone-Fidence!</p>
+
+            <div class="welcome-action-buttons">
+                <button class="btn-welcome-primary" onclick="goToLogin('login')">Getting Started</button>
+                <button class="btn-welcome-secondary" onclick="goToLogin('register')">Daftar Akun Baru</button>
+            </div>
+
+            <div class="welcome-socials">
+                <a href="https://instagram.com/sstrwdnii" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com/@ssthtvc" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/6281992741894" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1B. HALAMAN LOGIN / REGISTER (Gatekeeper) -->
+    <div id="loginOverlay" class="login-overlay hidden">
+        <div class="login-card">
+            <button class="btn-back-welcome" onclick="backToWelcome()"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+            <div class="brand-logo">
+                <i class="fa-solid fa-ice-cream logo-icon"></i>
+                <span class="logo-text">Cone-<span>Fidence</span></span>
+            </div>
+            <h2 id="loginFormTitle">Selamat Datang!</h2>
+            <p class="login-sub" id="loginFormSub">Silakan login untuk menikmati kelezatan es krim favorit Anda.</p>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email"><i class="fa-regular fa-envelope"></i> Alamat Email</label>
+                    <input type="email" id="email" placeholder="nama@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fa-solid fa-lock"></i> Kata Sandi</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-group hidden" id="confirmPasswordGroup">
+                    <label for="confirmPassword"><i class="fa-solid fa-lock"></i> Konfirmasi Kata Sandi</label>
+                    <input type="password" id="confirmPassword" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-primary btn-block" id="btnSubmitAuth">Masuk ke Toko</button>
+            </form>
+
+            <div class="divider"><span>Atau</span></div>
+            <button class="btn-secondary btn-block" onclick="guestLogin()">Lanjut Sebagai Tamu (Demo)</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTENT (Muncul setelah Login) -->
+    <div id="appContent" class="app-content hidden">
+
+        <!-- Announcement Top Bar -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="top-left">
+                    <span><i class="fa-solid fa-location-dot"></i> Jl. Manis No. 123, Kota Dessert</span>
+                    <span class="divider-line">|</span>
+                    <span><i class="fa-solid fa-truck-fast"></i> Gratis Ongkir untuk pembelian di atas Rp 30.000</span>
+                </div>
+                <div class="top-right">
+                    <span><i class="fa-regular fa-clock"></i> Senin - Minggu: 11.00 - 22.00 WIB</span>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/sstrwdnii" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@ssthtvc" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/6281992741894" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header / Navbar -->
+        <header class="main-header">
+            <div class="container header-container">
+                <a href="#home" class="brand-logo">
+                    <i class="fa-solid fa-ice-cream logo-icon"></i>
+                    <span class="logo-text">Cone-<small>Fidence</small></span>
+                </a>
+
+                <nav class="nav-menu">
+                    <a href="#home" class="active">BERANDA</a>
+                    <a href="#flavors">VARIAN RASA</a>
+                    <a href="#toppings">TOPPING</a>
+                    <a href="#reviews">ULASAN</a>
+                    <a href="#about">TENTANG KAMI</a>
+                    <a href="#contact">KONTAK</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="btn-order" onclick="toggleCart()">
+                        <span>PESAN ONLINE</span>
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                    <button class="btn-logout" title="Keluar" onclick="handleLogout()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <span class="subtitle-handwritten"><i class="fa-regular fa-heart"></i> Dibuat dengan cinta, disajikan dengan keceriaan! <i class="fa-regular fa-heart"></i></span>
+                    <h1 class="hero-title">NIKMATI KEBAHAGIAAN <span>Setiap Hari!</span></h1>
+                    <p class="hero-desc">Es krim lembut, lezat, dan kaya rasa yang dibuat khusus dari bahan-bahan kualitas terbaik.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#flavors" class="btn-primary">PESAN SEKARANG <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#toppings" class="btn-outline">PILIH TOPPING <i class="fa-solid fa-cookie-bite"></i></a>
+                    </div>
+
+                    <div class="hero-features-list">
+                        <div class="feature-item">
+                            <i class="fa-solid fa-gem"></i>
+                            <span>Bahan Premium</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-cow"></i>
+                            <span>Susu Segar Murni</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-leaf"></i>
+                            <span>Tanpa Pewarna Buatan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <div class="badge-pure">
+                        <strong>100%</strong>
+                        <span>MURNI</span>
+                    </div>
+                    <div class="img-placeholder hero-img">
+                        <img src="nama_gambar_hero.jpg" alt="Es Krim Cone-Fidence" onerror="this.style.display='none'">
+                        <div class="placeholder-text"><i class="fa-solid fa-image"></i><br>Gambar Hero Es Krim Utama</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Bar -->
+        <section class="features-bar">
+            <div class="container features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-truck"></i>
+                    <div>
+                        <h4>GRATIS ONGKIR</h4>
+                        <p>Pesanan di atas Rp 30.000</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <div>
+                        <h4>SEGAR & HIGIENIS</h4>
+                        <p>Dibuat secara higienis</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-ice-cream"></i>
+                    <div>
+                        <h4>BANYAK PILIHAN</h4>
+                        <p>40+ varian rasa lezat</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-gift"></i>
+                    <div>
+                        <h4>PROGRAM LOYALITAS</h4>
+                        <p>Kumpulkan poin & hadiah</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2B. SECTION VARIAN RASA (ANIMASI SEAMLESS AUTO-SCROLL SLIDER) -->
+        <section id="flavors" class="flavors-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title"><i class="fa-solid fa-fire-flame-curved icon-fire"></i> VARIAN RASA POPULER</h2>
+                        <p class="section-subtitle">Geser atau biarkan bergerak otomatis tanpa putus untuk memilih rasa kesukaanmu!</p>
+                        <div class="title-underline"></div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="btn-slider-arrow" onclick="scrollMenuSlider(-300)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="btn-slider-arrow" onclick="scrollMenuSlider(300)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANIMATED INFINITE SLIDER CONTAINER -->
+            <div class="menu-slider-wrapper">
+                <div class="menu-slider-track" id="menuSliderTrack">
+                    <!-- Kartu-kartu rasa diproduksi & diduplikasi oleh JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 2C. SECTION PILIHAN TOPPING (DESAIN MENYATU & ESTETIK) -->
+        <section id="toppings" class="toppings-section">
+            <div class="container">
+                <div class="section-header center-title">
+                    <h2 class="section-title"><i class="fa-solid fa-cookie-bite"></i> ANEKA TOPPING MANIS & CRUNCHY</h2>
+                    <p class="section-subtitle">Lengkapi kelezatan es krimmu dengan topping pilihan berkualitas terbaik!</p>
+                    <div class="title-underline center"></div>
+                </div>
+
+                <div class="toppings-grid" id="toppingsGrid">
+                    <!-- Topping diproduksi oleh JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Banner & About Section -->
+        <section id="about" class="promo-about-section">
+            <div class="container grid-2-col">
+                <div class="promo-card">
+                    <div class="promo-content">
+                        <span class="promo-tag">PROMO SPESIAL!</span>
+                        <h3>Beli 2 Scoop<br>Gratis 1 Scoop</h3>
+                        <button class="btn-primary" onclick="scrollToMenu()">PESAN SEKARANG</button>
+                    </div>
+                    <div class="img-placeholder promo-img">
+                        <img src="nama_gambar_promo.jpg" alt="Promo Es Krim" onerror="this.style.display='none'">
+                        <div class="placeholder-text"><i class="fa-solid fa-image"></i><br>Gambar Promo</div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>TENTANG KAMI</h3>
+                    <p>Di Cone-Fidence, kami percaya setiap scoop es krim membawa senyuman. Kami menggunakan bahan-bahan terbaik untuk menghadirkan es krim yang lembut, creamy, dan tak terlupakan.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <i class="fa-solid fa-stroopwafel"></i>
+                            <span>Segar Setiap Hari</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-solid fa-award"></i>
+                            <span>Bahan Berkualitas</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-solid fa-face-smile"></i>
+                            <span>Pelanggan Puas</span>
+                        </div>
+                    </div>
+                    <div class="img-placeholder about-img">
+                        <img src="nama_gambar_about.jpg" alt="Tentang Kami" onerror="this.style.display='none'">
+                        <div class="placeholder-text"><i class="fa-solid fa-image"></i><br>Gambar Tentang Kami</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TESTIMONIALS & FORM TAMBAH ULASAN OTOMATIS -->
+        <section id="reviews" class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title center">APA KATA PELANGGAN KAMI</h2>
+                <p class="section-subtitle center-text">Dengar langsung dari pencinta es krim Cone-Fidence!</p>
+
+                <!-- Grid Tempat Ulasan Ditambahkan -->
+                <div class="testimonials-grid" id="reviewsContainer">
+                    <!-- Default Ulasan -->
+                </div>
+
+                <!-- FORMULIR TAMBAH ULASAN INTERAKTIF -->
+                <div class="add-review-box">
+                    <h3><i class="fa-regular fa-comment-dots"></i> Tulis Ulasan & Pengalaman Kamu</h3>
+                    <form id="reviewForm" onsubmit="handleAddReview(event)">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>Nama Anda</label>
+                                <input type="text" id="revName" placeholder="Contoh: Amanda S." required>
+                            </div>
+                            <div class="form-group">
+                                <label>Rating Bintang</label>
+                                <div class="star-rating-select" id="starRatingSelector">
+                                    <span onclick="setRating(1)">★</span>
+                                    <span onclick="setRating(2)">★</span>
+                                    <span onclick="setRating(3)">★</span>
+                                    <span onclick="setRating(4)">★</span>
+                                    <span onclick="setRating(5)" class="active">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Ulasan Anda</label>
+                            <textarea id="revComment" rows="3" placeholder="Bagaimana rasa es krim Cone-Fidence menurutmu?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Kirim Ulasan Sekarang</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Callout Banner -->
+        <section class="cta-banner">
+            <div class="container cta-content">
+                <div class="img-placeholder cta-img">
+                    <img src="avatar-1.jpg" alt="Sundae" onerror="this.style.display='none'">
+                    <div class="placeholder-text"><i class="fa-solid fa-image"></i></div>
+                </div>
+                
+                <div class="cta-text">
+                    <h2>Ingin yang Manis-Manis?</h2>
+                    <p>Pesan secara online dan nikmati es krim favorit Anda langsung di rumah.</p>
+                </div>
+                <button class="btn-light" onclick="scrollToMenu()">PESAN ONLINE <i class="fa-solid fa-arrow-right"></i></button>
+
+                <div class="img-placeholder cta-img">
+                    <img src="avatar-2.jpg" alt="Cone" onerror="this.style.display='none'">
+                    <div class="placeholder-text"><i class="fa-solid fa-image"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col brand-col">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-ice-cream logo-icon"></i>
+                        <span class="logo-text">Cone-<small>Fidence</small></span>
+                    </div>
+                    <p>Nikmati kebahagiaan di setiap gigitan. Dibuat segar dan penuh cinta.</p>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/sstrwdnii" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@ssthtvc" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/6281992741894" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>TAUTAN CEPAT</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#flavors">Varian Rasa</a></li>
+                        <li><a href="#toppings">Pilihan Topping</a></li>
+                        <li><a href="#reviews">Ulasan Pelanggan</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#contact">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>LAYANAN PELANGGAN</h4>
+                    <ul>
+                        <li><a href="#">FAQ / Pertanyaan</a></li>
+                        <li><a href="#">Informasi Pengiriman</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>LOKASI OUTLET</h4>
+                    <p><strong>Cabang Pusat</strong><br>Jl. Manis No. 123<br>Kota Dessert, Jawa Barat</p>
+                    <br>
+                    <p><strong>Cabang Pantai</strong><br>Jl. Samudra No. 456<br>Kota Dessert, Jawa Barat</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>HUBUNGI KAMI</h4>
+                    <p>Dapatkan promo menarik dan varian rasa terbaru!</p>
+                    <div class="contact-links">
+                        <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/6281992741894" target="_blank">+62 819-9274-1894</a></p>
+                        <p><i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/sstrwdnii" target="_blank">@sstrwdnii</a></p>
+                        <p><i class="fa-brands fa-tiktok"></i> <a href="https://tiktok.com/@ssthtvc" target="_blank">@ssthtvc</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container bottom-content">
+                    <p>&copy; 2026 Cone-Fidence. Hak Cipta Dilindungi.</p>
+                    <div class="payment-methods">
+                        <span>Pembayaran:</span>
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-solid fa-qrcode" title="QRIS"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Cart Slide-out Drawer -->
+        <div id="cartDrawer" class="cart-drawer">
+            <div class="cart-header">
+                <h3>Keranjang Belanja (<span id="cartCount">0</span>)</h3>
+                <button class="btn-close" onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-body" id="cartItemsContainer">
+                <!-- Items Rendered Dynamically -->
+            </div>
+            <div class="cart-footer">
+                <div class="subtotal-row">
+                    <span>Subtotal:</span>
+                    <strong id="cartSubtotal">Rp 0</strong>
+                </div>
+                <button class="btn-primary btn-block" onclick="openCheckout()">Lanjut ke Pembayaran</button>
+            </div>
+        </div>
+
+        <!-- MODAL KUSTOMISASI TOPPING & UKURAN -->
+        <div id="customModal" class="modal-overlay hidden">
+            <div class="modal-card custom-modal-card">
+                <div class="modal-header">
+                    <h3 id="modalFlavorTitle">Kustomisasi Es Krim</h3>
+                    <button class="btn-close" onclick="closeCustomModal()">&times;</button>
+                </div>
+                <div class="modal-body-custom">
+                    <div class="custom-section">
+                        <h4>1. Pilih Ukuran / Penyajian:</h4>
+                        <div class="options-grid" id="sizeOptionsGrid"></div>
+                    </div>
+
+                    <div class="custom-section">
+                        <h4>2. Pilih Topping Tambahan:</h4>
+                        <div class="options-grid" id="toppingOptionsGrid"></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer-custom">
+                    <div class="custom-price-preview">
+                        <span>Harga Item:</span>
+                        <strong id="modalCalculatedPrice">Rp 0</strong>
+                    </div>
+                    <button class="btn-primary" onclick="confirmAddToCart()">Tambahkan ke Keranjang <i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. FLOATING CHAT ADMIN WIDGET (SMART RESPONSIVE CHATBOT) -->
+        <div class="chat-widget-wrapper">
+            <div id="chatBox" class="chat-box hidden">
+                <div class="chat-header">
+                    <div class="chat-admin-info">
+                        <div class="admin-avatar">
+                            <i class="fa-solid fa-headset"></i>
+                            <span class="online-dot"></span>
+                        </div>
+                        <div>
+                            <h4>Admin Cone-Fidence</h4>
+                            <small>Online | Respon Cerdas</small>
+                        </div>
+                    </div>
+                    <button class="btn-close-chat" onclick="toggleChat()">&times;</button>
+                </div>
+                <div class="chat-body" id="chatBody">
+                    <div class="chat-message admin">
+                        <p>Halo! 👋 Ada yang bisa kami bantu? Anda bisa bertanya seputar <strong>varian rasa</strong>, <strong>promo & harga</strong>, <strong>lokasi toko</strong>, atau <strong>ongkir</strong>!</p>
+                        <span class="chat-time">Baru saja</span>
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <div class="chat-input-row">
+                        <input type="text" id="chatInput" placeholder="Ketik pertanyaanmu..." onkeypress="handleChatKeyPress(event)">
+                        <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                    <a href="https://wa.me/6281992741894?text=Halo%20Admin%20Cone-Fidence,%20saya%20ingin%20bertanya%20tentang%20pesanan%20es%20krim" target="_blank" rel="noopener noreferrer" class="btn-wa-direct">
+                        <i class="fa-brands fa-whatsapp"></i> Chat Langsung via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <button class="btn-floating-chat" onclick="toggleChat()" title="Chat Admin">
+                <i class="fa-solid fa-comments"></i>
+                <span class="chat-badge-pulse">1</span>
+            </button>
+        </div>
+
+        <!-- Checkout / Transaksi Modal -->
+        <div id="checkoutModal" class="modal-overlay hidden">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3>Formulir Transaksi</h3>
+                    <button class="btn-close" onclick="closeCheckout()">&times;</button>
+                </div>
+                <form id="checkoutForm" onsubmit="processPayment(event)">
+                    <div class="form-group">
+                        <label>Nama Lengkap Penerima</label>
+                        <input type="text" id="custName" required placeholder="Contoh: Budi Santoso">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Pengiriman</label>
+                        <textarea id="custAddress" required placeholder="Jalan, No. Rumah, Kecamatan, Kota..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Metode Pembayaran</label>
+                        <select id="payMethod">
+                            <option value="QRIS Instan">QRIS Instan</option>
+                            <option value="Transfer Bank BCA/Mandiri">Transfer Bank (BCA / Mandiri)</option>
+                            <option value="Bayar Di Tempat (COD)">Bayar Di Tempat (COD)</option>
+                        </select>
+                    </div>
+                    <div class="order-summary-box">
+                        <p>Total Item: <span id="summaryTotalItems">0</span></p>
+                        <p>Total Tagihan: <strong id="summaryTotalPrice" class="price-highlight">Rp 0</strong></p>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Konfirmasi & Bayar Sekarang</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Struk Nota Pembayaran Modal -->
+        <div id="receiptModal" class="modal-overlay hidden">
+            <div class="modal-card receipt-card">
+                <div class="receipt-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <h2>Pembayaran Berhasil!</h2>
+                <p>Terima kasih telah memesan di <strong>Cone-Fidence</strong>.</p>
+                
+                <div class="receipt-details">
+                    <p><strong>ID Transaksi:</strong> <span id="recTxId">#CF-9982</span></p>
+                    <p><strong>Nama:</strong> <span id="recName">-</span></p>
+                    <p><strong>Metode Bayar:</strong> <span id="recMethod">-</span></p>
+                    <p><strong>Total Pembayaran:</strong> <span id="recTotal" class="price-highlight">Rp 0</span></p>
+                </div>
+                <button class="btn-primary btn-block" onclick="finishOrder()">Tutup & Kembali ke Utama</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Custom JS Script -->
+    <script src="script.js"></script>
+</body>
+</html>

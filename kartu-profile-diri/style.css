@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #667cc5;
+    color: #000000;
+}
+
+header {
+    background-color: #19267c;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 1300px;
+}
+
+nav {
+    margin-top: -38px;
+    margin-left: 1000px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+    background: linear-gradient(135deg, #80a7d3, #073869);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e6e93c;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.kelas {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+.kelas h2 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    text-align: center;
+    margin-left: 10px;
+    color:#0a4079
+}
+
+.card-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.card {
+    width: 30%;
+    padding: 30px;
+
+    background-color: #f5f5f5;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.Kursus {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+.Kursus h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:#0a4079
+}
+
+.tentang {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+
+}
+
+.tentang h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:#0a4079
+}
+
+.tentang p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.card-image {
+    width: 100px;   
+    height: 100px;  
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background-color: #19267c;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.kontak {
+    padding: 20px;
+    text-align: center;
+    background-color: #19267c;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+    }
+}

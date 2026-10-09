@@ -1,0 +1,196 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    max-width: 650;
+    margin: 0 auto;
+    padding: 20px;
+}
+header{
+    background-color: #19267c;
+    color: white;
+    text-align: center;
+    
+}
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-right: 1000px;
+    left: 10;
+}
+nav {
+    margin-top: -38px;
+    margin-left: 1000px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 ;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+.beranda{
+    text-align: center;
+    padding: 20px 20px;
+    color: white;
+    background: linear-gradient(135deg, #80a7d3, #073869);
+}
+
+.beranda h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.card{
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    box-sizing: border-box;
+}
+.icon{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background-color: #dbe6f6;
+    color: #19267c;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.card h3{
+    color: #0a4079;
+    font-size: 1rem;
+    margin: 6px 0;
+}
+ 
+.card p{
+    color: #19267c;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.card-image{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+}
+.card-from{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.card-form select{
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.container input[type="number"]{
+    width: 60px;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+ 
+.card-button{
+    background-color: #19267c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+.card-list-pesanan{
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    color: #777;
+}
+ 
+.item-pesanan{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+ 
+.item-info .item-nama{
+    font-weight: bold;
+    color: #222;
+}
+ 
+.item-info .item-qty{
+    font-size: 0.85rem;
+    color: #999;
+}
+ 
+.item-harga{
+    text-align: right;
+    font-weight: bold;
+    color: #19267c;
+}
+ 
+.item-harga .hapus{
+    display: block;
+    color: #e02424;
+    font-size: 0.85rem;
+    font-weight: normal;
+    cursor: pointer;
+    margin-top: 4px;
+}
+ 
+.total-bayar{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    font-weight: bold;
+    color: #19267c;
+    font-size: 1.1rem;
+}
+ 
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: #19267c;
+    color: white;
+}
+ 
+@media (max-width: 600px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .card {
+        width: 80%;
+    }
+ 
+    header{
+        flex-direction: column;
+        gap: 8px;
+    }
+}

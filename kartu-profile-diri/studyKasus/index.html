@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Praktik Kasir - Kedai Kopi Senja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header id="app-top" class="app-header">
+            <h1 class="brand-logo">Kedai Kopi Senja</h1>
+            <nav class="nav-menu">
+                <a href="#app-top" class="nav-link">Beranda</a>
+                <a href="#menu-favorit" class="nav-link">Menu</a>
+                <a href="#form-order" class="nav-link">Pesanan</a>
+                <a href="#kontak-kami" class="nav-link">Kontak</a>
+            </nav>
+        </header>
+        <section id="menu-favorit" class="content-section">
+            <h2 class="section-title">| Menu Favorit Kami</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <span class="menu-badge">KS</span>
+                    <p class="menu-name">Kopi Susu Gula Aren</p>
+                    <p class="menu-price">Rp15.000</p>
+                </div>
+                <div class="menu-card">
+                    <span class="menu-badge">AM</span>
+                    <p class="menu-name">Americano</p>
+                    <p class="menu-price">Rp13.000</p>
+                </div>
+                <div class="menu-card">
+                    <span class="menu-badge">RB</span>
+                    <p class="menu-name">Roti Bakar Coklat</p>
+                    <p class="menu-price">Rp12.000</p>
+                </div>
+                <div class="menu-card">
+                    <span class="menu-badge">KG</span>
+                    <p class="menu-name">Kentang Goreng</p>
+                    <p class="menu-price">Rp10.000</p>
+                </div>
+            </div>
+        </section>
+        <section id="form-order" class="content-section">
+            <h2 class="section-title">| Form Pemesanan</h2>
+            <form id="orderForm" class="order-form-inline">
+                <div class="form-group flex-grow">
+                    <label for="selectMenu" class="form-label">Pilih Menu</label>
+                    <select id="selectMenu" class="form-control" required>
+                        <option value="KS" data-name="Kopi Susu Gula Aren" data-price="15000">Kopi Susu Gula Aren - Rp15.000</option>
+                        <option value="AM" data-name="Americano" data-price="13000">Americano - Rp13.000</option>
+                        <option value="RB" data-name="Roti Bakar Coklat" data-price="12000">Roti Bakar Coklat - Rp12.000</option>
+                        <option value="KG" data-name="Kentang Goreng" data-price="10000">Kentang Goreng - Rp10.000</option>
+                    </select>
+                </div>                
+                <div class="form-group width-short">
+                    <label for="inputQuantity" class="form-label">Jumlah</label>
+                    <input type="number" id="inputQuantity" class="form-control" value="1" min="1" required>
+                </div>
+                <button type="submit" class="btn-submit-add">+ Tambah ke Keranjang</button>
+            </form>
+        </section>
+        <section class="content-section">
+            <h2 class="section-title">| Keranjang Pesanan</h2>
+            <div id="cartDisplayWrapper" class="cart-box-container">
+            </div>
+            <div class="summary-total-bar">
+                <span class="total-label">Total Bayar</span>
+                <span id="totalPriceOutput" class="total-amount-value">Rp0</span>
+            </div>
+        </section>
+        <footer class="app-footer">
+            &copy; 2026 Kedai Kopi Senja
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

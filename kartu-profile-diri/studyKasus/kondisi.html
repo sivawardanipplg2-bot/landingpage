@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedai Kopi Senja</title>
+    <link rel="stylesheet" href="kondisi.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Kedai Kopi Senja</div>
+
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="menu.html">Menu</a>
+            <a href="pesanan.html">Pesanan</a>
+            <a href="kontak.html">Kontak</a>
+        </nav>
+    </header>
+    <div class="wrapper"
+    <section class="Beranda" id="Beranda">
+        <h2>Menu favorit Kami</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="icon">KS</div>
+                
+                <h3>Kopi Susu Gula Aren</h3>
+                <p>Rp 15.000</p>
+            </div>
+            <div class="card">
+                <div class="icon">A</div>
+                
+                <h3>Americano</h3>
+                <p>Rp 13.000</p>
+            </div>
+            <div class="card">
+                <div class="icon">RB</div>
+                
+                <h3>Roti Bakar Coklat</h3>
+                <p>Rp 12.000</p>
+            </div>
+            <div class="card">
+                <div class="icon">KG</div>
+
+                <h3>Kentang Goreng</h3>
+                <p>Rp 10.000</p>
+            </div>
+            </div>
+        </section>
+            <section class="Beranda" id="from-pesanan">
+            <h2>From Pesanan</h2>
+                <br>
+                <select id="menu" name="menu">
+                    <option value="Kopi Susu Gula Aren">Kopi Susu Gula Aren</option>
+                    <option value="Americano">Americano</option>
+                    <option value="Roti Bakar Coklat">Roti Bakar Coklat</option>
+                    <option value="Kentang Goreng">Kentang Goreng</option>
+                    <form class="card-form"> 
+                    <div class="container">
+                        <h3 class="jumlah Pesanan">Jumlah:</h3>
+                        <label for="jumlah">Jumlah Pesanan </label>
+                        <input type="number" id="jumlah" placeholder="contoh: 1">
+                        <button class="card-button" type="submit" onclick="tambahKeKeranjang()"> + Tambah ke keranjang</button>
+                    </form>
+                    <div class="card-list-pesanan" id="keranjang pesanan" >
+                     Belum ada pesanan. Tambahkan pesanan pertamamu!
+                    </div>
+                </select>
+        </div>
+    </section>
+</div> 
+
+    <footer id="kontak">
+        <p>&copy; 2026 Kedai Kopi Senja.</p>
+    </footer>
+    <search src="kondisi.js"></search>
+
+</body>
+</html>

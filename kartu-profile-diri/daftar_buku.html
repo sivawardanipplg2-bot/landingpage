@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Judul Halaman</title> 
+    <link rel="stylesheet" href="daftar_buku.css">
+</head> 
+<body>
+    <div class="card">
+        <header class="card-header">
+            <h1 class="card-h1">Daftar Buku Bacaanku</h1> 
+            <p class="card-p">Catat buku yang ingin dan sudah kamu baca</p>
+        </header>
+        <form class="card-form"> 
+            <label class="card-label" for="judulbuku">Judul Buku:</label> 
+            <input type="text" id="judul" name="judul" class="card-input" placeholder="judul buku...." required>
+            <label class="card-label" for="penulis">Penulis:</label> 
+            <input type="text" id="penulis" name="penulis" class="card-input" placeholder="penulis...." required>
+            <button class="card-button" type="submit" onclick="tambahBuku()"> + Tambah</button>
+        </form>
+        <div class="card-hasil-cover">
+                <div>Total : <span id="total-buku">0 Buku</span></div>
+                <div>Sudah dibaca : <span id="sudah-dibaca">0</span></div>
+                <div>Belum dibaca : <span id="belum-dibaca">0</span></div>
+        </div>
+        <div class="card-list-buku" id="list-buku" >
+            Belum ada buku. Tambahkan buku pertamamu!
+        </div>
+    </div>
+    <script src="daftar_buku.js"></script> 
+</body> 
+</html>
